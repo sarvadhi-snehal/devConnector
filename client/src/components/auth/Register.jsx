@@ -1,7 +1,12 @@
 import { Fragment, useState } from "react";
-import { Link } from "react-router-dom";
-import axios from 'axios'
+import { Link ,Redirect} from "react-router-dom";
+import {  useDispatch,useSelector } from "react-redux";
+import { setAlert} from '../../actions/alert'
+import { register} from '../../actions/auth'
+
 function Register() {
+  const isAuthenticated = useSelector(state => state.auth.isAuthenticated)
+  const dispatch = useDispatch()
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -13,35 +18,24 @@ function Register() {
   const onSubmit = async e =>{
       e.preventDefault();
       if(password !== password2){
-          console.log("reenter password")
+        dispatch(setAlert("reenter password", "danger"))
       }
       else {
-        // const newUser = {
-        //     name,email,password
-        // }   
-
-        // try {
-        //     const config = {
-        //         headers: {
-        //             'Content-Type': 'application/json'
-        //         }
-        //     }
-      
-         
-        //     const res = await axios.post('/api/users',newUser,config)
-        //     console.log(res.data)
-        // } catch (error) {
-        //     console.log(error.response.data)
-        // }
-        console.log("successful")
+        dispatch(register({name,email,password}))
     }
+  }
+  if(isAuthenticated){
+    return <Redirect to="/dashboard" />
   }
   return (
     <Fragment>
+
       <h1 className="large text-primary">Sign Up</h1>
       <p className="lead">
         <i className="fas fa-user"></i> Create Your Account
       </p>
+    
+
       <form className="form" onSubmit={e => onSubmit(e)}>
         <div className="form-group">
           <input type="text" 
@@ -81,7 +75,7 @@ function Register() {
             minLength="6"
           />
         </div>
-        <input type="submit" className="btn btn-primary" value="Login" />
+        <input type="submit" className="btn btn-primary" value="Sign up" />
       </form>
       <p className="my-1">
         Already have an account? <Link to="/login">Sign In</Link>
@@ -89,5 +83,9 @@ function Register() {
     </Fragment>
   );
 }
+// Register.propTypes = {
+//   setAlert: PropTypes.func.isRequired
+// }
+
 
 export default Register;
