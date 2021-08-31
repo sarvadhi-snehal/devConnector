@@ -4,6 +4,7 @@ import { Route, Redirect } from "react-router-dom";
 
 const PrivateRoutes = ({ component: Component, ...rest }) => {
   const { isAuthenticated, loading } = useSelector((state) => state.auth);
+ 
   return (
     <Route
       {...rest}
