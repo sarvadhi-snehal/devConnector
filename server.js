@@ -17,7 +17,7 @@ app.use('/api/auth', require('./routes/API/auth'))
 
 // serve static asset
 if(process.env.NODE_ENV === 'production'){
-    app.use(express.static('clieny/build'))
+    app.use(express.static('client/build'))
 
     app.get('*', (res,req)=>{
         res.sendFile(path.resolve(__dirname, 'client', 'build','index.html'))
