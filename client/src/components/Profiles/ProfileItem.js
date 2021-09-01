@@ -13,14 +13,16 @@ const ProfileItem = ({
     return (
         <div className="profile bg-light">
         <img src={avatar} alt={"avatar"}className="round-img" />
-        <div>
-            <h2>{name}</h2>
+        <div >
+    
+          <h2>{name}</h2>
             <p>{status} {company && <span> at {company}</span>}</p>
             <p className="my-1">{location && <span>  {location}</span>}</p>
             <Link to={`/profile/${_id}`} className="btn btn-primary">
                 View Profile
             </Link>
-            <ul>
+       
+            <ul >
                 {skills.map((skill, index) =>(
                     <li key={index} className="text-primary">{skill}</li>
                 ))}
