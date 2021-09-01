@@ -79,7 +79,7 @@ export const addLike = (id) => async (dispatch) => {
 //Delete post
 export const deletePost = (id) => async (dispatch) => {
   try {
-   await axios.put(`api/posts/like/${id}`);
+   await axios.delete(`api/posts/${id}`);
     dispatch({
       type: DELETE_POST,
       payload: id
@@ -139,7 +139,7 @@ export const deleteComment = (postId, commentId) => async (dispatch) => {
   if(window.confirm("Are you sure, this can NOT be undone?")){
 
     try {
-     const res = await axios.delete(`/api/posts/comment/${postId}/${commentId}`);
+      await axios.delete(`/api/posts/comment/${postId}/${commentId}`);
   
       dispatch({
         type: DELETE_COMMENT,

@@ -1,5 +1,4 @@
 import { Fragment, useEffect } from "react";
-import PropTypes from "prop-types";
 import { useSelector, useDispatch } from "react-redux";
 import { getPosts } from "../../actions/post";
 import Spinner from "../layout/Spinner";
@@ -31,6 +30,6 @@ const Posts = (props) => {
   );
 };
 
-Posts.propTypes = {};
+
 
 export default Posts;

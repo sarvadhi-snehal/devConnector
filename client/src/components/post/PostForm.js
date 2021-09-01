@@ -1,6 +1,5 @@
 import {useState} from 'react'
-import PropTypes from 'prop-types'
-import { useSelector,useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import {addPost} from '../../actions/post'
 
 const PostForm = props => {
@@ -28,8 +27,6 @@ const PostForm = props => {
     )
 }
 
-PostForm.propTypes = {
 
-}
 
 export default PostForm
