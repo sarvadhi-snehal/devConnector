@@ -18,6 +18,10 @@ const Navbar = () => {
           <i className="fa fa-user"></i>
           <span>Dashboard</span>
         </Link>
+        <Link to="/posts">
+          <i className="fa fa-post"></i>
+          <span>Posts</span>
+        </Link>
       </li>
       <li>
         <a onClick={() => dispatch(logout())} href="#!">

@@ -45,25 +45,25 @@ router.get("/", auth, async (Req, res) => {
     const posts = await Post.find().sort({ data: -1 });
     res.json(posts);
   } catch (err) {
-    console.log(err.mesage);
+
     res.status(500).send("Server Error");
   }
 });
 
 //@Route  GET api/posts:id
-//@DESC   Get all Post
+//@DESC   Get single Post
 //@access private
 router.get("/:id", auth, async (req, res) => {
   try {
     const post = await Post.findById(req.params.id);
     if (!post) {
-      return res.status(404).jsonp({ msg: "No post found" });
+      return res.status(404).json({ msg: "No post found" });
     }
     res.json(post);
   } catch (err) {
     console.log(err.message);
     if (err.kind === "ObjectId") {
-      return res.status(404).jsonp({ msg: "No post found" });
+      return res.status(404).json({ msg: "No post found" });
     }
     res.status(500).send("Server Error");
   }

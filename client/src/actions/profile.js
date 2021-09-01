@@ -49,6 +49,7 @@ export const getProfileById = (userId) => async (dispatch) => {
       payload: res.data,
     });
   } catch (err) {
+  
     dispatch({
       type: PROFILE_ERROR,
       payload: { msg: err.response.statusText, status: err.response.status },
@@ -225,7 +226,8 @@ export const deleteProfile = () => async (dispatch) => {
       });
       dispatch(setAlert("Your account permantly removed", "danger"));
     } catch (err) {
-      console.error(err);
+  
+      
       dispatch({
         type: PROFILE_ERROR,
         payload: { msg: err.response.statusText, status: err.response.status },
@@ -234,3 +236,6 @@ export const deleteProfile = () => async (dispatch) => {
   }
 
   };
+
+
+ 

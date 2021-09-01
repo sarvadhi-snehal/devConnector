@@ -5,7 +5,7 @@ import { Link, withRouter } from 'react-router-dom';
 function EditProfile({history}) {
     const dispatch = useDispatch();
      const {profile,loading} = useSelector(state => state.profile)
-    console.log(profile, loading)
+
   const [displaySocialInputs, toggleSocialInput] = useState(false);
   const [formData, setFormData] = useState({
     company: "",

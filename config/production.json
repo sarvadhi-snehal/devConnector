@@ -1,0 +1,9 @@
+{
+  "mongoURI": "mongodb+srv://root:root123@cluster0.4wkwj.mongodb.net/devconnect?retryWrites=true&w=majority",
+
+  "jwtSecret": "thisismtsecrettoken",
+
+  "githubClientId": "577d667088f879d49831",
+
+  "githubSecret": "01dc3c90894a6b210892d509fbcde54b2ae8d101"
+}

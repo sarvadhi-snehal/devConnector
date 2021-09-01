@@ -9,7 +9,7 @@ const ProfileItem = ({
         location,
         skills
     }}) => {
-        console.log(skills)
+       
     return (
         <div className="profile bg-light">
         <img src={avatar} alt={"avatar"}className="round-img" />
